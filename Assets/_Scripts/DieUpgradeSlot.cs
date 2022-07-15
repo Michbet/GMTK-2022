@@ -21,4 +21,15 @@ public class DieUpgradeSlot : MonoBehaviour
     {
         _die.faces[_index] = value;
     }
+
+    public void AddOne()
+    {
+        _die.faces[_index] += 1;
+    }
+    
+    
+    public void RemoveOne()
+    {
+        _die.faces[_index] -= 1;
+    }
 }
