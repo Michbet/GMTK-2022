@@ -7,11 +7,11 @@ namespace _Scripts
     public class EnemyDice : MonoBehaviour
     {
         [Range(0, 1)]
-        public float speedPercent;
+        public float speedPercent = .39f;
         [Range(0, 1)]
-        public float blockPercent;
+        public float blockPercent = .09f;
         [Range(0, 1)]
-        public float attackPercent;
+        public float attackPercent = .52f;
 
         public int totalValue;
 
