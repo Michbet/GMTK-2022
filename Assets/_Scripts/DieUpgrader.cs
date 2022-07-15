@@ -12,11 +12,11 @@ public class DieUpgrader : MonoBehaviour
 
     private void Start()
     {
-        _die = new Die
+        /*_die = new Die
         {
             faces = new int[] {1, 2, 3, 4, 5, 6}
         };
-        SetUpSlots(_die);
+        SetUpSlots(_die); */
     }
 
     public void SetUpSlots(Die die)
