@@ -10,9 +10,14 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField]private PlayerDice player;
 
+    public static int goldCount;
+    [SerializeField]private int _gold;
+
     void Start() {
         speedDieUpgrader.SetUpSlots(player.speedDie);
         blockDieUpgrader.SetUpSlots(player.blockDie);
         attackDieUpgrader.SetUpSlots(player.attackDie);
+
+        goldCount = _gold;
     }
 }

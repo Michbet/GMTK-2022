@@ -8,6 +8,11 @@ public class DieUpgradeFace : MonoBehaviour
 {
     private Die _die = null;
     private int _index;
+    //private int initialVal;
+    //initialVal = _die.faces[_index];
+    // initialVal is basically a temp variable for the specified array index that ensures the player won't 
+    // remove below the starting point
+    private int upgrade_count = 0;
 
     public TMP_Text text;
 
@@ -26,14 +31,28 @@ public class DieUpgradeFace : MonoBehaviour
 
     public void AddOne()
     {
-        _die.faces[_index] += 1;
-        text.text = _die.faces[_index].ToString();
+        if(ShopManager.goldCount > 0) {
+            _die.faces[_index] += 1;
+            ShopManager.goldCount--;
+            text.text = _die.faces[_index].ToString();
+            upgrade_count++;
+        }
     }
     
     
     public void RemoveOne()
     {
-        _die.faces[_index] -= 1;
-        text.text = _die.faces[_index].ToString();
+        
+        if(upgrade_count > 0 && _die.faces[_index] > 0) {
+            _die.faces[_index] -= 1;
+            ShopManager.goldCount++;
+            upgrade_count--;
+            text.text = _die.faces[_index].ToString();
+        }
+    }
+
+    public void EndUpgradeTurn() {
+        //initialVal = _die.faces[_index];
+        upgrade_count = 0;
     }
 }
