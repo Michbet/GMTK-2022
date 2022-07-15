@@ -7,6 +7,11 @@ public class Die
 {
     // faces for the dice, can be changed in the editor
     public int[] faces = new int[] {1, 2, 3, 4, 5, 6};
+
+    // public Die(int[] faces)
+    // {
+    //     this.faces = faces;
+    // }
     public int Roll()
     {
         // throw an error if faces doesn't exist
@@ -17,4 +22,22 @@ public class Die
         var index = Random.Range(0, faces.Length);
         return faces[index];
     }
+    
+    public static Die GenerateDie(int totalValue, int maxValueOnFace = 99, int numFaces = 6)
+    {
+        Die die = new Die();
+        die.faces = new int[numFaces];
+        for (int i = 0; i < totalValue; i++)
+        {
+            int chosenIndex = Random.Range(0, numFaces);
+            while (die.faces[chosenIndex] >= maxValueOnFace)
+            {
+                chosenIndex = Random.Range(0, numFaces);
+            }
+
+            die.faces[chosenIndex]++;
+        }
+        return die;
+    }
+
 }
