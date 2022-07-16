@@ -11,8 +11,12 @@ public class DieVisual : MonoBehaviour
     public void SetUp(Die die)
     {
         _die = die;
-        text.text = die.faces[0].ToString();
+        SetNumber(-1);
     }
 
-    public void SetNumber(int num) => text.text = num.ToString();
+    /// <summary>
+    /// Sets the number on the die visual, sets as question mark if number is less than 0
+    /// </summary>
+    /// <param name="num"></param>
+    public void SetNumber(int num) => text.text = num < 0 ? "?" : num.ToString();
 }

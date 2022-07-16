@@ -58,5 +58,7 @@ namespace _Scripts
             this.block = block;
             this.attack = attack;
         }
+        
+        public static TurnStats NotDecided = new TurnStats(-1, -1, -1);
     }
 }

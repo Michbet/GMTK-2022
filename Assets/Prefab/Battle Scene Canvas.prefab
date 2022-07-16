@@ -118,14 +118,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef0524316f6b694d91f253984b83dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player:
+    name: You
+    holder: {fileID: 0}
+    hud: {fileID: 4422084360362895746}
+    startingPosition: {fileID: 9099727684212131240}
+  enemy:
+    name: The Enemy
+    holder: {fileID: 0}
+    hud: {fileID: 1070160606256417306}
+    startingPosition: {fileID: 1132963516005005582}
   enemyPrefab: {fileID: 7996483366362049727, guid: 27794a9bff7445a4889b2b9ad0ddfb70, type: 3}
-  playerLocation: {fileID: 9099727684212131240}
-  enemyLocation: {fileID: 1132963516005005582}
-  playerHUD: {fileID: 4422084360362895746}
-  enemyHUD: {fileID: 1070160606256417306}
   dialogueTextUI: {fileID: 4124263104781674881}
-  enemy: {fileID: 0}
 --- !u!1 &5651534935816485304
 GameObject:
   m_ObjectHideFlags: 0
