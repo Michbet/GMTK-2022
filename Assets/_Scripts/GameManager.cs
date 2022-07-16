@@ -33,7 +33,14 @@ public class GameManager : MonoBehaviour
         _shopManager.gameObject.SetActive(true);
         _battleSystem.gameObject.SetActive(false);
         
+        Debug.Log("Calculating gold added");
         var targetValue = (int) goldFunction.Calculate(level) + _playerInitDice.TotalValue;
+        Debug.Log("function value: " + (int) goldFunction.Calculate(level));
+        Debug.Log("init value: " +  _playerInitDice.TotalValue);
+        Debug.Log("target value (function + init): " +  targetValue);
+        Debug.Log("current player value: " + player.dice.TotalValue);
+        Debug.Log("gold to add: " + (targetValue - player.dice.TotalValue));
+        
         ShopManager.goldCount += targetValue - player.dice.TotalValue;
         
         level++;
