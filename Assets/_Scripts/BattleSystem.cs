@@ -78,6 +78,9 @@ public class BattleSystem : MonoBehaviour
         player.hud.StatsDiceVisual.SetDiceNums(TurnStats.NotDecided);
         enemy.hud.StatsDiceVisual.SetDiceNums(TurnStats.NotDecided);
         
+        player.holder.PlayAnim("Roll");
+        enemy.holder.PlayAnim("Roll");
+        
         // Calculate all the stats
         var playerTurnStats = player.holder.dice.Roll();
         var enemyTurnStats = enemy.holder.dice.Roll();
