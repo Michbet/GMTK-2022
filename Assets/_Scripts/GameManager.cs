@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     private StatsDice _enemyStatsDice;
     private StatsDice _playerInitDice;
-
     public static int level;
 
     public void TransitionToShop()
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
         _battleSystem.gameObject.SetActive(false);
         
         Debug.Log("Calculating gold added");
-        var targetValue = (int) goldFunction.Calculate(level) + _playerInitDice.TotalValue;
+        var targetValue = Mathf.RoundToInt(goldFunction.Calculate(level)) + _playerInitDice.TotalValue;
         Debug.Log("function value: " + (int) goldFunction.Calculate(level));
         Debug.Log("init value: " +  _playerInitDice.TotalValue);
         Debug.Log("target value (function + init): " +  targetValue);
@@ -57,7 +56,7 @@ public class GameManager : MonoBehaviour
         _shopManager.gameObject.SetActive(false);
         _battleSystem.gameObject.SetActive(true);
         
-        _battleSystem.SetupBattle((int)healthFunction.Calculate(level), _enemyStatsDice);
+        _battleSystem.SetupBattle(Mathf.RoundToInt(healthFunction.Calculate(level)), _enemyStatsDice);
     }
     private void Update()
     {
@@ -74,7 +73,7 @@ public class GameManager : MonoBehaviour
     private StatsDice GenerateEnemyDice(int lvl)
     {
         
-        var total = (int) enemyStatsFunction.Calculate(lvl);
+        var total = Mathf.RoundToInt(enemyStatsFunction.Calculate(lvl));
         return StatsDice.GenerateStatsDice(total, enemyPrefab.speedPercent, enemyPrefab.blockPercent,
             enemyPrefab.speedPercent);
     }
