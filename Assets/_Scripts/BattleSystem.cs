@@ -11,22 +11,24 @@ using UnityEngine;
 public class BattleSystem : MonoBehaviour
 {
     [SerializeField] private DiceHolder player;
-    [SerializeField] private DiceHolder enemy;
-    public string DialogueText
-    {
-        get => dialogueTextUI.text;
-        set => dialogueTextUI.text = value;
-    }
+    [SerializeField] private GameObject enemyPrefab;
 
-    [SerializeField] private TMP_Text dialogueTextUI;
+    [SerializeField] private Transform playerLocation;
+    [SerializeField] private Transform enemyLocation;
 
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
+    [SerializeField] private TMP_Text dialogueTextUI;
 
-    void Start()
+    [SerializeField] private DiceHolder enemy;
+    
+    public event Action<bool> BattleOver = delegate(bool b) {  };
+
+    public string DialogueText
     {
-        SetupBattle();
+        get => dialogueTextUI.text;
+        set => dialogueTextUI.text = value;
     }
 
     public void StartTurn()
@@ -34,15 +36,32 @@ public class BattleSystem : MonoBehaviour
         CalculateTurn();
     }
 
-    private void SetupBattle()
+    public void SetupBattle(int maxHealth, int totalEnemyValue)
     {
         // set health
         DialogueText = "bruh" ; //box dialogue 
 
+        player.transform.position = playerLocation.position;
+        
+        // Generate Enemy & Set location
+        enemy = Instantiate(enemyPrefab, enemyLocation.position, Quaternion.identity).GetComponent<DiceHolder>();
+        if (enemy is EnemyDice enemyDice)
+        {
+            enemyDice.totalValue = totalEnemyValue;
+            enemyDice.GenerateDice();
+        }
+
+        // Reset Healths
+        player.maxHealth = maxHealth;
+        enemy.maxHealth = maxHealth;
+        player.ResetHealth();
+        enemy.ResetHealth();
+
+        // Update huds
         playerHUD.setHUD(player);
         enemyHUD.setHUD(enemy);
     }
-
+    
     private void CalculateTurn()
     {
         var playerTurnStats = player.dice.Roll();
@@ -95,8 +114,7 @@ public class BattleSystem : MonoBehaviour
         {
             DialogueText = "You were defeated";
         }
-        player.ResetHealth();
-        enemy.ResetHealth();
+        BattleOver.Invoke(playerWon);
     }
 
     IEnumerator EnemyAttack(int attackDamage, int opponentBlock, Action onFinish = null)
