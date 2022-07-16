@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using _Scripts;
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
 
 
