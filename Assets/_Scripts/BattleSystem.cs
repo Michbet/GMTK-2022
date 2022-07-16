@@ -1,15 +1,18 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< Updated upstream
 using System.Threading.Tasks;
 using _Scripts;
 using TMPro;
+=======
+>>>>>>> Stashed changes
 using UnityEngine.UI;
 using UnityEngine;
 
 
 public class BattleSystem : MonoBehaviour
 {
+<<<<<<< Updated upstream
     [SerializeField] private DiceHolder player;
     [SerializeField] private DiceHolder enemy;
     public string DialogueText
@@ -19,6 +22,18 @@ public class BattleSystem : MonoBehaviour
     }
 
     [SerializeField] private TMP_Text dialogueTextUI;
+=======
+    public GameObject playerPrefab;
+    public GameObject enemyPrefab;
+
+    public Transform playerBattleStation;
+    public Transform enemyBattleStation;
+
+    Unit playerUnit;
+    Unit enemyUnit;
+
+    public Text dialogueText;
+>>>>>>> Stashed changes
 
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
@@ -26,6 +41,7 @@ public class BattleSystem : MonoBehaviour
 
     void Start()
     {
+<<<<<<< Updated upstream
         SetupBattle();
     }
 
@@ -120,4 +136,96 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+=======
+        state = BattleState.Start;
+        StartCoroutine(SetupBattle());
+    }
+
+    IEnumerator SetupBattle()
+    {
+        GameObject playerGO = Instantiate(playerPrefab,playerBattleStation);
+        playerGO.GetComponents<Unit>();
+
+        GameObject enemyGO= Instantiate(enemyPrefab, enemyBattleStation);
+        enemyGO.GetComponents<Unit>();
+
+        dialogueText.text = "A wild " + enemyUnit.unitName + " aproaches..." ; //box dialogue 
+
+        playerHUD.setHUD(playerUnit);
+        enemyHUD.setHUD(enemyUnit);
+
+        yield return new WaitForSeconds(2f);
+
+        state = BattleState.PlayerTurn;
+        PlayerTurn();
+    }
+
+    IEnumerator PlayerAttack()
+    {
+        bool isDead =enemyUnit.TakeDamage(playerUnit.damage);
+
+        enemyHUD.setHP(enemyUnit.currentHP);
+        dialogueText.text = "Successful hit";
+
+
+        //damage enemy
+        yield return new WaitForSeconds(2f);
+        //check if the enemy is dead
+        if(isDead)
+        {
+            state = BattleState.Won;
+            // end battle
+        }else{
+            state = BattleState.EnemyTurn;
+            StartCoroutine(EnemyTurn());
+            //enemy turn
+        }
+        //change state based on what happened
+    }
+
+    void EndBattle()
+    {
+        if(state == BattleState.Won)
+        {
+            dialogueText.text = "You Won The Battle!";
+        }else if(state == BattleState.Lost){
+            dialogueText.text = "You were defeated";
+        }
+    }
+
+    IEnumerator EnemyTurn()
+    {
+        dialogueText.text = enemyUnit.unitName + "attacked";
+        yield return new WaitForSeconds(1f);
+
+        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        playerHUD.setHP(playerUnit.currentHP);
+        yield return new WaitForSeconds(1f);
+
+        if(isDead)
+        {
+            state = BattleState.Lost;
+            EndBattle();
+        }else{
+            state = BattleState.PlayerTurn;
+            PlayerTurn();
+        }
+
+    }
+
+    void PlayerTurn()
+    {
+        dialogueText.text = "Choose an option";
+    }
+
+    void OnAttackButton()
+    {
+        if(state != BattleState.PlayerTurn)
+        return;
+
+        StartCoroutine(PlayerAttack());
+    }
+
+    
+>>>>>>> Stashed changes
 }
