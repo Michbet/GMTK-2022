@@ -16,7 +16,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Binomial enemyStatsFunction;
     [SerializeField] private Linear healthFunction;
-    [SerializeField] private Binomial goldFunction;
+    [SerializeField] private Linear goldFunction;
+
+    // [SerializeField] private AnimationCurve enemyStatsCurve;
+    // // [SerializeField] private AnimationCurve healthCurve;
+    // [SerializeField] private AnimationCurve goldCurve;
 
     [SerializeField] private int levelInit = 1;
     [SerializeField] private TMP_Text levelText;
@@ -34,15 +38,15 @@ public class GameManager : MonoBehaviour
         _shopManager.gameObject.SetActive(true);
         _battleSystem.gameObject.SetActive(false);
         
-        Debug.Log("Calculating gold added");
-        var targetValue = Mathf.RoundToInt(goldFunction.Calculate(level)) + _playerInitDice.TotalValue;
-        Debug.Log("function value: " + (int) goldFunction.Calculate(level));
-        Debug.Log("init value: " +  _playerInitDice.TotalValue);
-        Debug.Log("target value (function + init): " +  targetValue);
-        Debug.Log("current player value: " + player.dice.TotalValue);
-        Debug.Log("gold to add: " + (targetValue - player.dice.TotalValue));
+        // Debug.Log("Calculating gold added");
+        // var targetValue = Mathf.RoundToInt(goldFunction.Calculate(level)) + _playerInitDice.TotalValue;
+        // Debug.Log("function value: " + (int) goldFunction.Calculate(level));
+        // Debug.Log("init value: " +  _playerInitDice.TotalValue);
+        // Debug.Log("target value (function + init): " +  targetValue);
+        // Debug.Log("current player value: " + player.dice.TotalValue);
+        // Debug.Log("gold to add: " + (targetValue - player.dice.TotalValue));
         
-        ShopManager.goldCount += targetValue - player.dice.TotalValue;
+        ShopManager.goldCount += Mathf.RoundToInt(goldFunction.Calculate(level));
         
         level++;
         _enemyStatsDice = GenerateEnemyDice(level);
@@ -72,8 +76,8 @@ public class GameManager : MonoBehaviour
 
     private StatsDice GenerateEnemyDice(int lvl)
     {
-        
         var total = Mathf.RoundToInt(enemyStatsFunction.Calculate(lvl));
+        Debug.Log("Enemies Total " + total);
         return StatsDice.GenerateStatsDice(total, enemyPrefab.speedPercent, enemyPrefab.blockPercent,
             enemyPrefab.speedPercent);
     }

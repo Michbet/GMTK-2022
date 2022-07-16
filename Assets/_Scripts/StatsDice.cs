@@ -19,6 +19,11 @@ namespace _Scripts
             stats.speedDie = generatedDice[0];
             stats.blockDie = generatedDice[1];
             stats.attackDie = generatedDice[2];
+            
+            Debug.Log("Total: " + totalValue);
+            Debug.Log("Speed Total: " + stats.speedDie.faces.Sum());
+            Debug.Log("Block Total: " + stats.blockDie.faces.Sum());
+            Debug.Log("Attack Total: " + stats.attackDie.faces.Sum());
             return stats;
         }
 
@@ -37,6 +42,7 @@ namespace _Scripts
                 sortedFaces.Sort();
                 dice[i].faces = sortedFaces.ToArray();
             }
+            
             return dice;
         }
 
