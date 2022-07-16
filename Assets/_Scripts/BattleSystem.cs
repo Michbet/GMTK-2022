@@ -148,6 +148,7 @@ public class BattleSystem : MonoBehaviour
         int blockedDamage = (attackDamage - damage);
         
         // Process damage and update UI
+        SFXManager.Play("Damage");
         bool isDead = defender.holder.TakeDamage(damage);
         Debug.Log($"{attacker.name} dealt {damage} to {defender.name}");
         defender.hud.UpdateHealth();
