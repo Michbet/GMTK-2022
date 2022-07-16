@@ -97,7 +97,7 @@ MonoBehaviour:
       faces: 000000000000000000000000010000000100000002000000
   currentHealth: 0
   maxHealth: 10
-  speedPercent: 0.33
-  blockPercent: 0.2
-  attackPercent: 0.47
+  speedPercent: 0.325
+  blockPercent: 0.225
+  attackPercent: 0.45
   totalValue: 13
