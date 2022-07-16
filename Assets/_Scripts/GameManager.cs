@@ -14,9 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BattleSystem _battleSystem;
     [SerializeField] private DiceHolder player;
 
-    [SerializeField] private Scaler enemyStatsScaler;
-    [SerializeField] private Scaler healthScaler;
-    [SerializeField] private Scaler goldScaler;
+    [SerializeField] private Binomial enemyStatsFunction;
+    [SerializeField] private Linear healthFunction;
+    [SerializeField] private Binomial goldFunction;
 
     [SerializeField] private int levelInit = 1;
     [SerializeField] private TMP_Text levelText;
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
         _shopManager.gameObject.SetActive(true);
         _battleSystem.gameObject.SetActive(false);
         
-        var goldGiven = ((int) goldScaler.Value(level) + _playerInitDice.TotalValue - player.dice.TotalValue);
-        ShopManager.goldCount += goldGiven > 0 ? goldGiven : 0;
+        var targetValue = (int) goldFunction.Calculate(level) + _playerInitDice.TotalValue;
+        ShopManager.goldCount += targetValue - player.dice.TotalValue;
         
         level++;
         _enemyStatsDice = GenerateEnemyDice(level);
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         _shopManager.gameObject.SetActive(false);
         _battleSystem.gameObject.SetActive(true);
         
-        _battleSystem.SetupBattle((int)healthScaler.Value(level), _enemyStatsDice);
+        _battleSystem.SetupBattle((int)healthFunction.Calculate(level), _enemyStatsDice);
     }
     private void Update()
     {
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     private StatsDice GenerateEnemyDice(int lvl)
     {
         
-        var total = (int) enemyStatsScaler.Value(lvl);
+        var total = (int) enemyStatsFunction.Calculate(lvl);
         return StatsDice.GenerateStatsDice(total, enemyPrefab.speedPercent, enemyPrefab.blockPercent,
             enemyPrefab.speedPercent);
     }

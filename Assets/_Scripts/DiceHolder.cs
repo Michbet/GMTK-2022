@@ -29,10 +29,10 @@ namespace _Scripts
             return currentHealth <= 0;
         }
 
-        // public void PlayAttackAnim()
-        // {
-        //     anim.SetTrigger("Attack");
-        // }
+        public void PlayAnim(string stateName)
+        {
+            anim.Play(stateName);
+        }
         
     }
 }
