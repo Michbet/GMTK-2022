@@ -17,8 +17,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Scaler healthScaler;
     [SerializeField] private Scaler goldScaler;
 
-    [SerializeField] private int level = 1;
+    [SerializeField] private int levelInit = 1;
     [SerializeField] private TMP_Text levelText;
+
+    public static int level;
 
     public void TransitionToShop()
     {
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         TransitionToBattle();
-       
+        level = levelInit;
     }
 
     private void OnEnable()

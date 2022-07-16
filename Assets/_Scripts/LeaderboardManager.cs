@@ -5,12 +5,15 @@ using LootLocker.Requests;
 
 public class LeaderboardManager : MonoBehaviour
 {
-    public static string playerID;
+    public static LeaderboardManager Instance;
+    public static string PlayerID;
+    public static LootLockerLeaderboardMember[] Scores;
     private static int _leaderboardID = 4760;
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         StartCoroutine(LoginRoutine());
     }
 
@@ -21,8 +24,8 @@ public class LeaderboardManager : MonoBehaviour
         {
             if (response.success)
             {
-                LeaderboardManager.playerID = response.player_id.ToString();
-                Debug.Log("Player was logged in with playerID " + playerID);
+                LeaderboardManager.PlayerID = response.player_id.ToString();
+                Debug.Log("Player was logged in with playerID " + PlayerID);
                 done = true;
             }
             else
@@ -44,7 +47,18 @@ public class LeaderboardManager : MonoBehaviour
         StartCoroutine(SetNameRoutine(playerName));
     }
 
-    private IEnumerator SetNameRoutine(string playerName)
+    public void SetNameAndScore(string username, int score)
+    {
+        StartCoroutine(SetNameAndScoreRoutine(username, score));
+    }
+
+    public IEnumerator SetNameAndScoreRoutine(string username, int score)
+    {
+        yield return SetNameRoutine(username);
+        yield return SubmitScoreRoutine(score);
+    }
+
+    public IEnumerator SetNameRoutine(string playerName)
     {
         bool done = false;
         LootLockerSDKManager.SetPlayerName(playerName, (response) =>
@@ -63,10 +77,10 @@ public class LeaderboardManager : MonoBehaviour
         yield return new WaitUntil(() => done);
     }
 
-    private IEnumerator SubmitScoreRoutine(int scoreToUpload)
+    public IEnumerator SubmitScoreRoutine(int scoreToUpload)
     {
         bool done = false;
-        LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, _leaderboardID, (response) =>
+        LootLockerSDKManager.SubmitScore(PlayerID, scoreToUpload, _leaderboardID, (response) =>
         {
             if (response.success)
             {
@@ -81,5 +95,30 @@ public class LeaderboardManager : MonoBehaviour
         });
         yield return new WaitUntil(() => done);
     }
-    
+
+    public void LoadScores()
+    {
+        StartCoroutine(LoadScoresRoutine());
+    }
+
+    public IEnumerator LoadScoresRoutine()
+    {
+        bool done = false;
+        LootLockerSDKManager.GetScoreList(_leaderboardID, 100, 0, (response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("retrieved top 100 scores");
+                Scores = response.items;
+            }
+            else
+            {
+                Debug.Log("couldn't retrive scores");
+            }
+
+            done = true;
+        });
+        yield return new WaitUntil(() => done);
+    }
+
 }
