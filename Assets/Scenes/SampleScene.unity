@@ -239,12 +239,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice:
     speedDie:
-      faces: 010000000200000003000000040000000500000006000000
+      faces: 010000000100000001000000020000000200000002000000
     blockDie:
-      faces: 010000000200000003000000040000000500000006000000
+      faces: 000000000000000000000000000000000100000001000000
     attackDie:
-      faces: 010000000200000003000000040000000500000006000000
-  maxHealth: 10
+      faces: 010000000100000002000000020000000300000003000000
+  maxHealth: 99999999
 --- !u!114 &587968396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1222448185139183329, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1222448185139183333, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: m_Pivot.x
@@ -575,14 +575,14 @@ MonoBehaviour:
   _battleSystem: {fileID: 1014344822}
   player: {fileID: 587968395}
   enemyStatsScaler:
-    m: 1
-    b: 20
+    m: 2
+    b: 22
   healthScaler:
     m: 1
-    b: 20
+    b: 5
   goldScaler:
     m: 1
-    b: 1
+    b: 0
   level: 1
 --- !u!4 &1983657517
 Transform:
@@ -894,6 +894,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3987731529470353162, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: _gold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987731529470353162, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 587968395}
@@ -901,6 +905,34 @@ PrefabInstance:
       propertyPath: goldDisplay
       value: 
       objectReference: {fileID: 1662241976}
+    - target: {fileID: 6916183902286204575, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916183902286204575, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916183902286204575, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11500000, guid: 69c661a799cf98b4d84356a95513b58e, type: 3}
+    - target: {fileID: 6916183902286204575, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916183902286204575, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916183902286204575, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ShopManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916183902286204575, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6916183903075045422, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
       propertyPath: m_Sprite
       value: 
