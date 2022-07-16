@@ -33,7 +33,7 @@ namespace _Scripts
             
             for (int i = 0; i < SlotsPerPage; i++)
             {
-                var scoreIndex = _pageIndex * i * SlotsPerPage;
+                var scoreIndex = _pageIndex * SlotsPerPage + i;
                 slots[i].PopulateSlot(scoreIndex < LeaderboardManager.Scores.Length ? LeaderboardManager.Scores[scoreIndex] : null);
             }
         }

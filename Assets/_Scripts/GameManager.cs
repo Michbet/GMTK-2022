@@ -5,6 +5,7 @@ using _Scripts;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -88,8 +89,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Player died, try again");
-            TransitionToBattle();
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
