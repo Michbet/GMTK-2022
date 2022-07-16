@@ -86,7 +86,12 @@ public class BattleSystem : MonoBehaviour
         // Determine who goes first from speed;
         bool playerFirst = playerTurnStats.speed >= enemyTurnStats.speed;
         
-        // todo: play dice roll animation
+        // todo: play dice roll animation (for speed)
+        player.hud.StatsDiceVisual.speedDieVisual.SpinOnce();
+        enemy.hud.StatsDiceVisual.speedDieVisual.SpinOnce();
+        
+        // play animation
+        yield return new WaitForSeconds(1.2f);
 
         // Update DieVisual
         player.hud.StatsDiceVisual.speedDieVisual.SetNumber(playerTurnStats.speed);
@@ -94,6 +99,7 @@ public class BattleSystem : MonoBehaviour
 
         // wait for input after speed calculation
         DialogueText = playerFirst ? $"{player.name} move first!" : $"{enemy.name} moved first!";
+        
         yield return new WaitUntil(() => _moveOnPressed);
         _moveOnPressed = false;
         
