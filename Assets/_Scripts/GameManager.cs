@@ -2,7 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Scaler goldScaler;
 
     [SerializeField] private int level = 1;
+    [SerializeField] private TMP_Text levelText;
 
     public void TransitionToShop()
     {
@@ -30,10 +34,14 @@ public class GameManager : MonoBehaviour
         
         _battleSystem.SetupBattle((int)healthScaler.Value(level), (int)enemyStatsScaler.Value(level));
     }
-
+    private void Update()
+    {
+        levelText.text = "Lvl " +  level;
+    }
     private void Start()
     {
         TransitionToBattle();
+       
     }
 
     private void OnEnable()
