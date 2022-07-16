@@ -22,9 +22,9 @@ public class DieVisual : MonoBehaviour
 
     public void SpinOnce()
     {
-        StartCoroutine(SpinOnceRoutine(5));
+        StartCoroutine(SpinOnceRoutine(10));
     }
-
+    //_die.faces
     private IEnumerator SpinOnceRoutine(float speed)
     {
         var startRotation = transform.rotation;
@@ -35,6 +35,7 @@ public class DieVisual : MonoBehaviour
             eulerAngles.z = i;
             transform.rotation = Quaternion.Euler(eulerAngles);
             yield return null;
+            
         }
         //
         // var duration = 5;

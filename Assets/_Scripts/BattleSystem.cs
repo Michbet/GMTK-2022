@@ -89,12 +89,15 @@ public class BattleSystem : MonoBehaviour
         // todo: play dice roll animation (for speed)
         player.hud.StatsDiceVisual.speedDieVisual.SpinOnce();
         enemy.hud.StatsDiceVisual.speedDieVisual.SpinOnce();
-        
+       
+
         // play animation
-        yield return new WaitForSeconds(1.2f);
+
+        //yield return new WaitForSeconds(1.2f);
 
         // Update DieVisual
         player.hud.StatsDiceVisual.speedDieVisual.SetNumber(playerTurnStats.speed);
+        
         enemy.hud.StatsDiceVisual.speedDieVisual.SetNumber(enemyTurnStats.speed);
 
         // wait for input after speed calculation
@@ -130,7 +133,9 @@ public class BattleSystem : MonoBehaviour
         Action onFinish = null)
     {
         // todo: play die visual animation
-        
+        attacker.hud.StatsDiceVisual.attackDieVisual.SpinOnce();
+        defender.hud.StatsDiceVisual.blockDieVisual.SpinOnce();
+
         // update number
         attacker.hud.StatsDiceVisual.attackDieVisual.SetNumber(attackDamage); // todo: have easier access
         defender.hud.StatsDiceVisual.blockDieVisual.SetNumber(defenderBlock);
