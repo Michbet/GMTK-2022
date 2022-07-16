@@ -166,6 +166,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42424606}
   m_CullTransparentMesh: 1
+--- !u!224 &221781550 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1222448185139183333, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+  m_PrefabInstance: {fileID: 1213558944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &424670770 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9177100618361443783, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
@@ -348,14 +353,14 @@ RectTransform:
   m_GameObject: {fileID: 587968394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
+  m_LocalScale: {x: 2.3386116, y: 2.3386116, z: 2.3386116}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 221781550}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 175.16663, y: 183.83331}
+  m_AnchoredPosition: {x: -493.9342, y: -108.647995}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &587968399
@@ -368,7 +373,7 @@ Animator:
   m_GameObject: {fileID: 587968394}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ca7bb48540d3494192881aaf15cc16e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
