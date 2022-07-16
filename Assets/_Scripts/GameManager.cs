@@ -20,13 +20,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int levelInit = 1;
     [SerializeField] private TMP_Text levelText;
 
+    [SerializeField] private EnemyDice enemyPrefab;
+
+    [SerializeField] private StatsDice _enemyStatsDice;
+
     public static int level;
 
     public void TransitionToShop()
     {
-        ShopManager.goldCount += (int)goldScaler.Value(level);
         _shopManager.gameObject.SetActive(true);
         _battleSystem.gameObject.SetActive(false);
+        
+        ShopManager.goldCount += (int)goldScaler.Value(level);
+        _enemyStatsDice = GenerateEnemyDice(level);
+        _shopManager.SetUp(_enemyStatsDice);
     }
 
     public void TransitionToBattle()
@@ -34,7 +41,7 @@ public class GameManager : MonoBehaviour
         _shopManager.gameObject.SetActive(false);
         _battleSystem.gameObject.SetActive(true);
         
-        _battleSystem.SetupBattle((int)healthScaler.Value(level), (int)enemyStatsScaler.Value(level));
+        _battleSystem.SetupBattle((int)healthScaler.Value(level), _enemyStatsDice);
     }
     private void Update()
     {
@@ -42,8 +49,17 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        TransitionToBattle();
         level = levelInit;
+        _enemyStatsDice = GenerateEnemyDice(level);
+        TransitionToBattle();
+    }
+
+    private StatsDice GenerateEnemyDice(int lvl)
+    {
+        
+        var total = (int) enemyStatsScaler.Value(lvl);
+        return StatsDice.GenerateStatsDice(total, enemyPrefab.speedPercent, enemyPrefab.blockPercent,
+            enemyPrefab.speedPercent);
     }
 
     private void OnEnable()
