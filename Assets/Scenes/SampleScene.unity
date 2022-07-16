@@ -170,7 +170,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.23584908, g: 0.17006607, b: 0.112362064, a: 0}
+  m_BackGroundColor: {r: 0.60784316, g: 0.81960785, b: 0.65882355, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -250,11 +250,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice:
     speedDie:
-      faces: 010000000100000001000000020000000200000002000000
-    blockDie:
       faces: 000000000000000000000000000000000100000001000000
+    blockDie:
+      faces: 000000000000000000000000010000000100000001000000
     attackDie:
-      faces: 010000000100000002000000020000000300000003000000
+      faces: 010000000100000001000000010000000100000001000000
   currentHealth: 0
   maxHealth: 99999999
 --- !u!114 &587968396
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c2f078931a96c0f408d22cec1a2466a7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c5f31b633a750f4293813aa999e1dca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -304,16 +304,21 @@ RectTransform:
   m_GameObject: {fileID: 587968394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 819204868}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 219.49997, y: 220.24997}
+  m_AnchoredPosition: {x: -142, y: -26}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &819204868 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1222448185139183333, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+  m_PrefabInstance: {fileID: 1213558944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &973330892 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3987731529470353162, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
@@ -389,7 +394,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1014344822 stripped
 MonoBehaviour:
@@ -409,6 +414,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 625724702761438931, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 159.66121
+      objectReference: {fileID: 0}
+    - target: {fileID: 625724702761438931, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 159.66121
+      objectReference: {fileID: 0}
+    - target: {fileID: 625724702761438931, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 159.66121
+      objectReference: {fileID: 0}
+    - target: {fileID: 625724702761438931, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 625724702761438931, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 672009474296167358, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.39349365
+      objectReference: {fileID: 0}
     - target: {fileID: 1070160606256417306, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: DiceHolder
       value: 
@@ -505,6 +534,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4239270586911873062, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.39349365
+      objectReference: {fileID: 0}
     - target: {fileID: 4422084360362895746, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: DiceHolder
       value: 
@@ -527,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5072798973100144706, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 138.4
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 5418643976101760208, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: enemy
@@ -553,6 +586,38 @@ PrefabInstance:
       propertyPath: player.holder
       value: 
       objectReference: {fileID: 587968395}
+    - target: {fileID: 6570480036156228742, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6570480036156228742, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6570480036156228742, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -96.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6570480036156228742, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 135.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541444610537105182, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541444610537105182, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541444610537105182, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 138.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541444610537105182, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 37.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8100757335173479412, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -607,6 +672,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+--- !u!114 &1330371574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4861289013661640227, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+  m_PrefabInstance: {fileID: 1213558944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1549601255 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5022514005064658675, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
@@ -662,15 +738,16 @@ MonoBehaviour:
   _battleSystem: {fileID: 1014344822}
   player: {fileID: 587968395}
   enemyStatsScaler:
-    m: 2
-    b: 22
+    m: 7
+    b: 0
   healthScaler:
     m: 1
-    b: 5
+    b: 2
   goldScaler:
-    m: 1
-    b: 0
+    m: 0.5
+    b: 1
   level: 1
+  levelText: {fileID: 1330371574}
 --- !u!4 &1983657517
 Transform:
   m_ObjectHideFlags: 0
