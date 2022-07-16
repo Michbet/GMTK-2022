@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class BattleHUD : MonoBehaviour
 {
     public Text nameText;
-    public Text LevelText;
     public Slider hpSlider;
+    
+    
 
-    public void setHUD(Unit unit)
+    public void setHUD(DiceHolder diceHolder)
     {
-        nameText.text = unit.unitName;
-        levelText.text = unit.unitlevel;
-        hpSlider.maxHP = unit.maxHP;
-        hpSlider.value = unit.currentHP;
+        
     }
 
     public void setHP(int hp)
