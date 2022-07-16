@@ -11,7 +11,7 @@ namespace _Scripts
         public Die speedDie;
         public Die blockDie;
         public Die attackDie;
-        
+
         public static StatsDice GenerateStatsDice(int totalValue, float speedPercent, float blockPercent, float attackPercent)
         {
             StatsDice stats = new StatsDice();
@@ -38,6 +38,25 @@ namespace _Scripts
                 dice[i].faces = sortedFaces.ToArray();
             }
             return dice;
+        }
+
+        public TurnStats Roll()
+        {
+            return new TurnStats(speedDie.Roll(), blockDie.Roll(), attackDie.Roll());
+        }
+    }
+
+    public struct TurnStats
+    {
+        public int speed;
+        public int block;
+        public int attack;
+
+        public TurnStats(int speed, int block, int attack)
+        {
+            this.speed = speed;
+            this.block = block;
+            this.attack = attack;
         }
     }
 }

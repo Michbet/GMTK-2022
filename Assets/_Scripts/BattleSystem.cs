@@ -1,106 +1,123 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using _Scripts;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine;
 
 
-public enum BattleState {Start, PlayerTurn, EnemyTurn, Won, Lost}
-
 public class BattleSystem : MonoBehaviour
 {
-
     [SerializeField] private DiceHolder player;
     [SerializeField] private DiceHolder enemy;
+    public string DialogueText
+    {
+        get => dialogueTextUI.text;
+        set => dialogueTextUI.text = value;
+    }
+
+    [SerializeField] private TMP_Text dialogueTextUI;
 
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
 
-    public BattleState state;
     void Start()
     {
-        state = BattleState.Start;
-        // StartCoroutine(SetupBattle());
+        SetupBattle();
     }
-    
-    // IEnumerator SetupBattle()
-    // {
-    //     playerHUD.setHUD(player);
-    //     enemyHUD.setHUD(enemyUnit);
-    //
-    //     yield return new WaitForSeconds(2f);
-    //
-    //     state = BattleState.PLAYERTURN;
-    //     playerTurn();
-    // }
-    //
-    // IEnumerator PlayerAttack()
-    // {
-    //     bool isDead =enemyUnit.TakeDamage(playerUnit.damage);
-    //
-    //     enemyHUD.SetHP(enemyUnit.currentHP);
-    //     dialogueText.text = "Successful hit";
-    //
-    //
-    //     //damage enemy
-    //     yield return new WaitForSeconds(2f);
-    //     //check if the enemy is dead
-    //     if(isDead)
-    //     {
-    //         state = BattleState.WON;
-    //         // end battle
-    //     }else{
-    //         state = BattleState.EnemyTurn;
-    //         StartCoroutine(EnemyTurn());
-    //         //enemy turn
-    //     }
-    //     //change state based on what happened
-    // }
-    //
-    // void EndBattle()
-    // {
-    //     if(state == BattleState.WON)
-    //     {
-    //         dialogueText.text = "You Won The Battle!";
-    //     }else if(state == BattleState.Lost){
-    //         dialogueText.text = "You were defeated";
-    //     }
-    // }
-    //
-    // IEnumerator EnemyTurn()
-    // {
-    //     dialogueText.text = enemyUnit.unitname + "attacked";
-    //     yield return new WaitForSeconds(1f);
-    //
-    //     bool isDead = playeUnit.TakeDamage(enemyUnit.damage);
-    //     playerHUD.SetHP(playerUnit.currentHP);
-    //     yield return new WaitForSeconds(1f);
-    //
-    //     if(isDead)
-    //     {
-    //         state = BattleState.LOST;
-    //         EndBattle();
-    //     }else{
-    //         state = BattleState.PLAYERTURN;
-    //         PlayerTurn();
-    //     }
-    //
-    // }
-    //
-    // void PlayerTurn()
-    // {
-    //     dialogueText.text = "Choose an option";
-    // }
-    //
-    // void OnAttackButton()
-    // {
-    //     if(state != BattleState.PLAYERTURN)
-    //         return;
-    //
-    //     StartCoroutine(PlayerAttack());
-    // }
 
-    
+    public void StartTurn()
+    {
+        CalculateTurn();
+    }
+
+    private void SetupBattle()
+    {
+        // set health
+        DialogueText = "bruh" ; //box dialogue 
+
+        playerHUD.setHUD(player);
+        enemyHUD.setHUD(enemy);
+    }
+
+    private void CalculateTurn()
+    {
+        var playerTurnStats = player.dice.Roll();
+        var enemyTurnStats = enemy.dice.Roll();
+
+        bool playerFirst = playerTurnStats.speed >= enemyTurnStats.speed;
+
+        playerHUD.UpdateDice(playerTurnStats);
+        enemyHUD.UpdateDice(enemyTurnStats);
+
+        if (playerFirst)
+        {
+            StartCoroutine(PlayerAttack(playerTurnStats.attack, enemyTurnStats.block, 
+                () => StartCoroutine(EnemyAttack(enemyTurnStats.attack, playerTurnStats.block))));
+        }
+        else
+        {
+            StartCoroutine(EnemyAttack(enemyTurnStats.attack, playerTurnStats.block,
+                () => StartCoroutine(PlayerAttack(playerTurnStats.attack, enemyTurnStats.block))));
+        }
+        
+    }
+
+    IEnumerator PlayerAttack(int attackDamage, int opponentBlock, Action onFinish = null)
+    {
+        int damage = attackDamage - opponentBlock >= 0 ? attackDamage - opponentBlock : 0;
+        bool isDead = enemy.TakeDamage(damage);
+
+        DialogueText = "Player Attacking";
+        Debug.Log($"Player dealt {damage} to the Enemy");
+        yield return null;
+        
+        //check if the enemy is dead
+        if(isDead)
+        {
+            EndBattle(true);
+            yield break;
+        }
+        //change state based on what happened
+        if (onFinish != null)
+            onFinish();
+    }
+
+    void EndBattle(bool playerWon)
+    {
+        if(playerWon)
+        {
+            DialogueText = "You Won The Battle!";
+        }else
+        {
+            DialogueText = "You were defeated";
+        }
+        player.ResetHealth();
+        enemy.ResetHealth();
+    }
+
+    IEnumerator EnemyAttack(int attackDamage, int opponentBlock, Action onFinish = null)
+    {
+        int damage = attackDamage - opponentBlock >= 0 ? attackDamage - opponentBlock : 0;
+        bool isDead = player.TakeDamage(damage);
+        
+        DialogueText = "Enemy Attacking";
+        Debug.Log($"Enemy dealt {damage} to the Player");
+        yield return null;
+        
+        //check if the enemy is dead
+        if(isDead)
+        {
+            EndBattle(false);
+            yield break;
+        }
+        //change state based on what happened
+        if (onFinish != null)
+            onFinish();
+
+    }
+
 }

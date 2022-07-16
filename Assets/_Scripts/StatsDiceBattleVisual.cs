@@ -17,4 +17,11 @@ public class StatsDiceBattleVisual : MonoBehaviour
         blockDieVisual.SetUp(statsDice.blockDie);
         attackDieVisual.SetUp(statsDice.attackDie);
     }
+
+    public void SetDiceNums(TurnStats turnStats)
+    {
+        speedDieVisual.SetNumber(turnStats.speed);
+        blockDieVisual.SetNumber(turnStats.block);
+        attackDieVisual.SetNumber(turnStats.attack);
+    }
 }

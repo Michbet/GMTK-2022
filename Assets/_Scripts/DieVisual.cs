@@ -13,4 +13,6 @@ public class DieVisual : MonoBehaviour
         _die = die;
         text.text = die.faces[0].ToString();
     }
+
+    public void SetNumber(int num) => text.text = num.ToString();
 }
