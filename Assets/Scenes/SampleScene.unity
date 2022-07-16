@@ -920,15 +920,17 @@ MonoBehaviour:
   _shopManager: {fileID: 973330892}
   _battleSystem: {fileID: 1014344822}
   player: {fileID: 587968395}
-  enemyStatsScaler:
-    m: 5.5
-    b: 0
-  healthScaler:
-    m: 0.4
-    b: 3
-  goldScaler:
-    m: 0.7
+  enemyStatsFunction:
+    a: 0.5
     b: 1
+    c: 3
+  healthFunction:
+    m: 1
+    b: 3
+  goldFunction:
+    a: 0.1
+    b: 1
+    c: 0
   levelInit: 1
   levelText: {fileID: 1330371574}
   enemyPrefab: {fileID: 7996483366362049726, guid: 27794a9bff7445a4889b2b9ad0ddfb70, type: 3}

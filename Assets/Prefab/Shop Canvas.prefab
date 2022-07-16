@@ -817,8 +817,8 @@ MonoBehaviour:
   attackDieUpgrader: {fileID: 4205522526374678031}
   player: {fileID: 0}
   enemySpeedDieText: {fileID: 8941423327841593026}
-  enemyBlockDieText: {fileID: 8202332220513899328}
-  enemyAttackDieText: {fileID: 3705955452262220226}
+  enemyBlockDieText: {fileID: 3705955452262220226}
+  enemyAttackDieText: {fileID: 8202332220513899328}
   goldDisplay: {fileID: 6916183902877960207}
 --- !u!1001 &1523751988101113326
 PrefabInstance:
@@ -913,7 +913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3993902407594141512, guid: 0cd4e34f97de0cc4c82aeb16314f57ea, type: 3}
       propertyPath: m_Name
-      value: Enemy Highest Face Block
+      value: Enemy Highest Face Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189372902085839452, guid: 0cd4e34f97de0cc4c82aeb16314f57ea, type: 3}
+      propertyPath: m_Name
+      value: Attack Text (TMP)
       objectReference: {fileID: 0}
     - target: {fileID: 9016525245341769498, guid: 0cd4e34f97de0cc4c82aeb16314f57ea, type: 3}
       propertyPath: m_Color.b
@@ -1036,6 +1040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Highest Face Speed
       objectReference: {fileID: 0}
+    - target: {fileID: 7189372902085839452, guid: 0cd4e34f97de0cc4c82aeb16314f57ea, type: 3}
+      propertyPath: m_Name
+      value: Speed Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 9016525245341769498, guid: 0cd4e34f97de0cc4c82aeb16314f57ea, type: 3}
       propertyPath: m_Color.g
       value: 0.8745098
@@ -1155,7 +1163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3993902407594141512, guid: 0cd4e34f97de0cc4c82aeb16314f57ea, type: 3}
       propertyPath: m_Name
-      value: Enemy Highest Face Attack
+      value: Enemy Highest Face Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189372902085839452, guid: 0cd4e34f97de0cc4c82aeb16314f57ea, type: 3}
+      propertyPath: m_Name
+      value: Block Text (TMP)
       objectReference: {fileID: 0}
     - target: {fileID: 9016525245341769498, guid: 0cd4e34f97de0cc4c82aeb16314f57ea, type: 3}
       propertyPath: m_Color.b
