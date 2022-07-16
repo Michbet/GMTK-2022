@@ -9,16 +9,20 @@ public class BattleHUD : MonoBehaviour
 {
     public DiceHolder DiceHolder;
     public StatsDiceBattleVisual StatsDiceVisual;
-    // public HealthBar HealthBar;
+    public HealthBar HealthBar;
     
-    public void setHUD(DiceHolder diceHolder)
+    public void SetupHUD(DiceHolder diceHolder)
     {
         // Set Dice visual
+        DiceHolder = diceHolder;
         StatsDiceVisual.SetUp(diceHolder.dice);
+        HealthBar.SetMaxHealth(diceHolder.maxHealth);
     }
 
     public void UpdateDice(TurnStats stats)
     {
         StatsDiceVisual.SetDiceNums(stats);
     }
+
+    public void UpdateHealth() => HealthBar.SetHealth(DiceHolder.currentHealth);
 }

@@ -35,7 +35,6 @@ public class BattleSystem : MonoBehaviour
 
     public void SetupBattle(int maxHealth, int totalEnemyValue)
     {
-        // set health
         DialogueText = "bruh" ; //box dialogue 
 
         player.transform.position = playerLocation.position;
@@ -55,8 +54,8 @@ public class BattleSystem : MonoBehaviour
         enemy.ResetHealth();
 
         // Update huds
-        playerHUD.setHUD(player);
-        enemyHUD.setHUD(enemy);
+        playerHUD.SetupHUD(player);
+        enemyHUD.SetupHUD(enemy);
     }
     
     private void CalculateTurn()
@@ -80,12 +79,15 @@ public class BattleSystem : MonoBehaviour
                 () => StartCoroutine(PlayerAttack(playerTurnStats.attack, enemyTurnStats.block))));
         }
         
+        
     }
 
     IEnumerator PlayerAttack(int attackDamage, int opponentBlock, Action onFinish = null)
     {
         int damage = attackDamage - opponentBlock >= 0 ? attackDamage - opponentBlock : 0;
         bool isDead = enemy.TakeDamage(damage);
+        
+        enemyHUD.UpdateHealth();
 
         DialogueText = "Player Attacking";
         Debug.Log($"Player dealt {damage} to the Enemy");
@@ -118,6 +120,8 @@ public class BattleSystem : MonoBehaviour
     {
         int damage = attackDamage - opponentBlock >= 0 ? attackDamage - opponentBlock : 0;
         bool isDead = player.TakeDamage(damage);
+        
+        playerHUD.UpdateHealth();
         
         DialogueText = "Enemy Attacking";
         Debug.Log($"Enemy dealt {damage} to the Player");

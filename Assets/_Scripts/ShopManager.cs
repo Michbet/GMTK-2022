@@ -34,7 +34,19 @@ public class ShopManager : MonoBehaviour
 
     public void ExitShop()
     {
+        foreach (var face in speedDieUpgrader.dieUpgradeSlots)
+        {
+            face.EndUpgradeTurn();
+        }
+        foreach (var face in blockDieUpgrader.dieUpgradeSlots)
+        {
+            face.EndUpgradeTurn();
+        }
+        foreach (var face in attackDieUpgrader.dieUpgradeSlots)
+        {
+            face.EndUpgradeTurn();
+        }
         OnShopExit.Invoke();
     }
-    
+
 }

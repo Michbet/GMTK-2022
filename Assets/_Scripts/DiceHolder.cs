@@ -6,7 +6,7 @@ namespace _Scripts
     public class DiceHolder : MonoBehaviour
     {
         public StatsDice dice;
-        private int _currentHealth;
+        public int currentHealth;
         public int maxHealth = 15;
 
         private void Start()
@@ -14,7 +14,7 @@ namespace _Scripts
             ResetHealth();
         }
 
-        public void ResetHealth() => _currentHealth = maxHealth;
+        public void ResetHealth() => currentHealth = maxHealth;
 
         /// <summary>
         /// damages player
@@ -23,8 +23,8 @@ namespace _Scripts
         /// <returns>true if the diceHolder died</returns>
         public bool TakeDamage(int damage)
         {
-            _currentHealth -= damage;
-            return _currentHealth <= 0;
+            currentHealth -= damage;
+            return currentHealth <= 0;
         }
         
     }
