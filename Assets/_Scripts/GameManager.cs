@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private EnemyDice enemyPrefab;
 
-    [SerializeField] private StatsDice _enemyStatsDice;
+    private StatsDice _enemyStatsDice;
+    private StatsDice _playerInitDice;
 
     public static int level;
 
@@ -32,7 +33,10 @@ public class GameManager : MonoBehaviour
         _shopManager.gameObject.SetActive(true);
         _battleSystem.gameObject.SetActive(false);
         
-        ShopManager.goldCount += (int)goldScaler.Value(level);
+        var goldGiven = ((int) goldScaler.Value(level) + _playerInitDice.TotalValue - player.dice.TotalValue);
+        ShopManager.goldCount += goldGiven > 0 ? goldGiven : 0;
+        
+        level++;
         _enemyStatsDice = GenerateEnemyDice(level);
         _shopManager.SetUp(_enemyStatsDice);
     }
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         level = levelInit;
+        _playerInitDice = player.dice;
         _enemyStatsDice = GenerateEnemyDice(level);
         TransitionToBattle();
     }
@@ -85,7 +90,6 @@ public class GameManager : MonoBehaviour
         if (playerWon)
         {
             TransitionToShop();
-            level++;
         }
         else
         {

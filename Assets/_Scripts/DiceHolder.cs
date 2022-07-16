@@ -6,12 +6,14 @@ namespace _Scripts
     public class DiceHolder : MonoBehaviour
     {
         public StatsDice dice;
+        public Animator anim;
         public int currentHealth;
         public int maxHealth = 15;
 
         private void Start()
         {
             ResetHealth();
+            anim = anim == null ? GetComponent<Animator>() : anim;
         }
 
         public void ResetHealth() => currentHealth = maxHealth;
@@ -26,6 +28,11 @@ namespace _Scripts
             currentHealth -= damage;
             return currentHealth <= 0;
         }
+
+        // public void PlayAttackAnim()
+        // {
+        //     anim.SetTrigger("Attack");
+        // }
         
     }
 }

@@ -31,7 +31,7 @@ namespace _Scripts
             }
             for (int i = 0; i < dicePercent.Length; i++)
             {
-                dice[i] = Die.GenerateDie((int)(totalValue * dicePercent[i]));
+                dice[i] = Die.GenerateDie(Mathf.RoundToInt(totalValue * dicePercent[i]));
                 // sort the faces
                 var sortedFaces = dice[i].faces.ToList();
                 sortedFaces.Sort();
@@ -44,6 +44,8 @@ namespace _Scripts
         {
             return new TurnStats(speedDie.Roll(), blockDie.Roll(), attackDie.Roll());
         }
+
+        public int TotalValue => speedDie.faces.Sum() + blockDie.faces.Sum() + attackDie.faces.Sum();
     }
 
     public struct TurnStats
