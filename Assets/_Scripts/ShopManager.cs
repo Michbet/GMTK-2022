@@ -16,7 +16,6 @@ public class ShopManager : MonoBehaviour
     public Text goldDisplay;
 
     public static int goldCount;
-    [SerializeField]private int _gold;
     
     public event Action OnShopExit = delegate {  };
 
@@ -24,8 +23,6 @@ public class ShopManager : MonoBehaviour
         speedDieUpgrader.SetUpSlots(player.dice.speedDie);
         blockDieUpgrader.SetUpSlots(player.dice.blockDie);
         attackDieUpgrader.SetUpSlots(player.dice.attackDie);
-
-        goldCount = _gold;
     }
     private void Update()
     {
