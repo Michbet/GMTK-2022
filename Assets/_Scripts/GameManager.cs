@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     public void TransitionToShop()
     {
+        // todo: Play shop music
+        
         _shopManager.gameObject.SetActive(true);
         _battleSystem.gameObject.SetActive(false);
         
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     public void TransitionToBattle()
     {
+        MusicManager.Play("Battle Music");
+        
         _shopManager.gameObject.SetActive(false);
         _battleSystem.gameObject.SetActive(true);
         
