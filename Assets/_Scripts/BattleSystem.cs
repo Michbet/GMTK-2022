@@ -42,7 +42,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(CalculateTurn());
     }
 
-    public void SetupBattle(int maxHealth, int totalEnemyValue)
+    public void SetupBattle(int maxHealth, StatsDice enemyStatsDice)
     {
         DialogueText = "Time to Roll" ; //box dialogue 
         _inTurn = false;
@@ -57,8 +57,7 @@ public class BattleSystem : MonoBehaviour
         enemyHolder.transform.parent = transform;
         if (enemyHolder is EnemyDice enemyDice) // should always be true, just for casting
         {
-            enemyDice.totalValue = totalEnemyValue;
-            enemyDice.GenerateDice();
+            enemyDice.dice = enemyStatsDice;
         }
         enemy.holder = enemyHolder;
 
