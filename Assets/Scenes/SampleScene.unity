@@ -866,5 +866,69 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: blockDie.faces.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: blockDie.faces.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: blockDie.faces.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: blockDie.faces.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: blockDie.faces.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: blockDie.faces.Array.data[5]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: speedDie.faces.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: speedDie.faces.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: speedDie.faces.Array.data[3]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: speedDie.faces.Array.data[4]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: speedDie.faces.Array.data[5]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: attackDie.faces.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: attackDie.faces.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: attackDie.faces.Array.data[3]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: attackDie.faces.Array.data[4]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046047714790910126, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
+      propertyPath: attackDie.faces.Array.data[5]
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99f3d2be5170ae247819c5b0563eabfb, type: 3}
