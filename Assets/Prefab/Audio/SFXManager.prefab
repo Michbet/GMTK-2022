@@ -44,13 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: coin down
-    clip: {fileID: 8300000, guid: 156495eb2c0d5c447b2ac0cdfbc0d57a, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: coin
-    clip: {fileID: 8300000, guid: 613c165a710c55344a77e621684b0ae9, type: 3}
+  - name: Damage
+    clip: {fileID: 8300000, guid: 48c985c23f5f13c43b6ff16fb7d004df, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
