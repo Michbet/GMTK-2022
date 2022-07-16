@@ -50,9 +50,11 @@ public class BattleSystem : MonoBehaviour
 
         // set player location
         player.holder.transform.position = player.startingPosition.position;
+        player.holder.transform.parent = transform;
         
         // Generate Enemy & Set enemy location
         var enemyHolder = Instantiate(enemyPrefab, enemy.startingPosition.position, Quaternion.identity).GetComponent<DiceHolder>();
+        enemyHolder.transform.parent = transform;
         if (enemyHolder is EnemyDice enemyDice) // should always be true, just for casting
         {
             enemyDice.totalValue = totalEnemyValue;
