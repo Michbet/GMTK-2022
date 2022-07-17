@@ -97,6 +97,7 @@ public class BattleSystem : MonoBehaviour
         bool playerFirst = playerTurnStats.speed >= enemyTurnStats.speed;
         
         // todo: play dice roll animation (for speed)
+        SFXManager.Play("Dice Roll");
         player.hud.StatsDiceVisual.speedDieVisual.SpinOnce();
         enemy.hud.StatsDiceVisual.speedDieVisual.SpinOnce();
        

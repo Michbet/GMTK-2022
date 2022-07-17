@@ -74,8 +74,18 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: Miss
-    clip: {fileID: 8300000, guid: 76ae89d2d30382541b31a60da58925c9, type: 3}
+  - name: Dice Roll
+    clip: {fileID: 8300000, guid: 536d41903aff97644b6aba7971383541, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Increase Face
+    clip: {fileID: 8300000, guid: 156495eb2c0d5c447b2ac0cdfbc0d57a, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Decrease Face
+    clip: {fileID: 8300000, guid: 613c165a710c55344a77e621684b0ae9, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}

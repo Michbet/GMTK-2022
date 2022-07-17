@@ -36,6 +36,7 @@ public class DieUpgradeFace : MonoBehaviour
             ShopManager.goldCount--;
             text.text = _die.faces[_index].ToString();
             upgrade_count++;
+            SFXManager.Play("Increase Face");
         }
     }
     
@@ -48,6 +49,7 @@ public class DieUpgradeFace : MonoBehaviour
             ShopManager.goldCount++;
             upgrade_count--;
             text.text = _die.faces[_index].ToString();
+            SFXManager.Play("Decrease Face");
         }
     }
 
