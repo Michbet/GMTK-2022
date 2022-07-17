@@ -10,6 +10,8 @@ namespace _Scripts
         public int currentHealth;
         public int maxHealth = 15;
 
+        public OverlayAnimation overlayAnimation;
+
         private void Start()
         {
             ResetHealth();
@@ -33,6 +35,10 @@ namespace _Scripts
         {
             anim.Play(stateName);
         }
-        
+
+        public void PlayOverlayAnim(string stateName)
+        {
+            overlayAnimation.Play(stateName);
+        }
     }
 }
