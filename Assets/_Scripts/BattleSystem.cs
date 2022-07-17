@@ -27,7 +27,7 @@ public class BattleSystem : MonoBehaviour
 
 
     [SerializeField] private Button playButton;
-    [SerializeField] private Button moveOnButton;
+    // [SerializeField] private Button moveOnButton;
     
     public event Action<bool> BattleOver = delegate(bool b) {  };
 
@@ -148,7 +148,7 @@ public class BattleSystem : MonoBehaviour
     private void Update()
     {
         playButton.gameObject.SetActive(!_inTurn);
-        moveOnButton.enabled = _inTurn;
+        // moveOnButton.enabled = _inTurn;
 
         if (_inTurn && !HelperFunctions.IsMouseOverButtonUI() && Input.GetMouseButtonDown(0))
         {
