@@ -1,9 +1,9 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace _Scripts
+namespace _Scripts.Editor
 {
     #if UNITY_EDITOR
+    using UnityEditor;
     [CustomEditor(typeof(EnemyDice))]
     public class EnemyDiceEditor : Editor
     {

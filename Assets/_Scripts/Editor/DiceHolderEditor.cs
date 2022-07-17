@@ -1,10 +1,9 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace _Scripts
+﻿namespace _Scripts.Editor
 {
+    #if UNITY_EDITOR
+    using UnityEditor;
     [CustomEditor(typeof(DiceHolder))]
-    public class DiceHolderEditor : Editor
+    public class DiceHolderEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
@@ -14,4 +13,5 @@ namespace _Scripts
                 EditorGUILayout.SelectableLabel("Total value: " + diceHolder.dice.TotalValue.ToString());
         }
     }
+    #endif
 }
