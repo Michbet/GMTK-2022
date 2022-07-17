@@ -29,6 +29,7 @@ public class ShopManager : MonoBehaviour
         speedDieUpgrader.SetUpSlots(player.dice.speedDie);
         blockDieUpgrader.SetUpSlots(player.dice.blockDie);
         attackDieUpgrader.SetUpSlots(player.dice.attackDie);
+        goldCount = 0;
     }
 
     public void SetUp(StatsDice nextEnemyDice)
