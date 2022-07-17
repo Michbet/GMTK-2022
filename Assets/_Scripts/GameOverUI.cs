@@ -16,7 +16,12 @@ public class GameOverUI : MonoBehaviour
     public void OnSubmit()
     {
         if (nameInput.text == "")
+        {
+            nameInput.placeholder.color = Color.red;
+            if (nameInput.placeholder is TMP_Text placeHolderText)
+                placeHolderText.text = "You must enter a name here";
             return;
+        }
         LeaderboardManager.Instance.SetNameAndScore(nameInput.text, GameManager.level);
         submitButton.gameObject.SetActive(false);
         nameInput.gameObject.SetActive(false);

@@ -29,7 +29,7 @@ namespace _Scripts
                 return;
             }
             gameObject.SetActive(true);
-            rank.text = member.rank.ToString();
+            rank.text = "#" + member.rank.ToString();
             username.text = member.player.name;
             level.text = member.score.ToString();
 
