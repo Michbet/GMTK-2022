@@ -181,6 +181,7 @@ public class BattleSystem : MonoBehaviour
         DialogueText = $"{attacker.name} attacked {defender.name} for {attackDamage} damage" +
                        $"{(blockedDamage > 0 ? $", but {defender.name} blocked {defenderBlock} damage." : "!" )}";
         yield return new WaitUntil(() => _moveOnPressed);
+        SFXManager.Play("Button Press");
         _moveOnPressed = false;
 
         DialogueText = damage > 0 ? $"{defender.name} took {damage} damage." : $"{defender.name} took no damage!";
@@ -198,6 +199,7 @@ public class BattleSystem : MonoBehaviour
         //check if the enemy is dead
         if(isDead)
         {
+            SFXManager.Play("Death");
             StartCoroutine(EndBattle(defender == enemy));
             yield break;
         }
@@ -215,6 +217,7 @@ public class BattleSystem : MonoBehaviour
             Destroy(enemy.holder.gameObject);
         }else
         {
+            SFXManager.Play("Death");
             DialogueText = "You were defeated";
         }
         // wait for input to end battle
