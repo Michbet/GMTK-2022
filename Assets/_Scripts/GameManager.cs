@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     {
         level = levelInit;
         _playerInitDice = player.dice;
+        ShopManager.goldCount = 0;
         _enemyStatsDice = GenerateEnemyDice(level);
         TransitionToBattle();
     }
