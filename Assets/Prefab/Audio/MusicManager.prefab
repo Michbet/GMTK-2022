@@ -47,7 +47,7 @@ MonoBehaviour:
   songs:
   - name: Battle Music
     clip: {fileID: 8300000, guid: 943b4d9b0b0adab49ad9f198f1550c08, type: 3}
-    volume: 1
+    volume: 0.744
     pitch: 1
     loop: 1
     source: {fileID: 0}

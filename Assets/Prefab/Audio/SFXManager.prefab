@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Damage
-    clip: {fileID: 8300000, guid: a1aa372b78e350b4599307a586b1c5d3, type: 3}
+    clip: {fileID: 8300000, guid: ac340332ff49a98448557860ed9ab748, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}

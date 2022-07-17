@@ -189,6 +189,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitUntil(() => _moveOnPressed);
         _moveOnPressed = false;
 
+        SFXManager.Play("Button Push");
         DialogueText = damage > 0 ? $"{defender.name} took {damage} damage." : $"{defender.name} took no damage!";
         yield return new WaitUntil(() => _moveOnPressed);
         _moveOnPressed = false;
