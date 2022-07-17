@@ -80,12 +80,12 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Increase Face
-    clip: {fileID: 8300000, guid: 156495eb2c0d5c447b2ac0cdfbc0d57a, type: 3}
+    clip: {fileID: 8300000, guid: 613c165a710c55344a77e621684b0ae9, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
   - name: Decrease Face
-    clip: {fileID: 8300000, guid: 613c165a710c55344a77e621684b0ae9, type: 3}
+    clip: {fileID: 8300000, guid: c16e232833b0dac4f9eff058c019b80b, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
