@@ -49,18 +49,21 @@ public class BattleSystem : MonoBehaviour
         _moveOnPressed = false;
 
         // set player location
-        player.holder.transform.position = player.startingPosition.position;
         player.startingPosition.gameObject.SetActive(false);
         player.holder.transform.SetParent(transform);
+        player.holder.transform.position = player.startingPosition.position;
+        player.holder.transform.localScale = player.startingPosition.localScale;
         
         // Generate Enemy & Set enemy location
-        var enemyHolder = Instantiate(enemyPrefab, enemy.startingPosition.position, Quaternion.identity).GetComponent<DiceHolder>();
-        enemyHolder.transform.SetParent(transform);;
+        var enemyHolder = Instantiate(enemyPrefab, transform).GetComponent<DiceHolder>();
         enemy.startingPosition.gameObject.SetActive(false);
         if (enemyHolder is EnemyDice enemyDice) // should always be true, just for casting
         {
             enemyDice.dice = enemyStatsDice;
         }
+
+        enemyHolder.transform.position = enemy.startingPosition.position;
+        enemyHolder.transform.localScale = enemy.startingPosition.localScale;
         enemy.holder = enemyHolder;
 
         // Reset Healths
@@ -152,7 +155,7 @@ public class BattleSystem : MonoBehaviour
             damage = 1;
         }
         else
-        damage = attackDamage - defenderBlock >= 0 ? attackDamage - defenderBlock : 0;
+            damage = attackDamage - defenderBlock >= 0 ? attackDamage - defenderBlock : 0;
         int blockedDamage = (attackDamage - damage);
         
         // Process damage and update UI
@@ -196,6 +199,7 @@ public class BattleSystem : MonoBehaviour
         if(playerWon)
         {
             DialogueText = "You Won The Battle!";
+            Destroy(enemy.holder.gameObject);
         }else
         {
             DialogueText = "You were defeated";
