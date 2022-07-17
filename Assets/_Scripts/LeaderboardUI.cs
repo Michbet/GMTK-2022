@@ -1,7 +1,4 @@
-﻿using System;
-using LootLocker.Requests;
-using TMPro;
-using UnityEditor.SearchService;
+﻿using LootLocker.Requests;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

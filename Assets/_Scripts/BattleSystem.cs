@@ -33,7 +33,7 @@ public class BattleSystem : MonoBehaviour
 
     private bool _moveOnPressed = false;
     private bool _inTurn = false;
-    private bool _firstTime = true;
+    private static bool _firstTime = true;
 
     public string DialogueText
     {
@@ -175,6 +175,8 @@ public class BattleSystem : MonoBehaviour
         else
             damage = attackDamage - defenderBlock >= 0 ? attackDamage - defenderBlock : 0;
         int blockedDamage = (attackDamage - damage);
+        
+        attacker.holder.PlayAnim("Attack");
 
         if (blockedDamage > 0)
         {
