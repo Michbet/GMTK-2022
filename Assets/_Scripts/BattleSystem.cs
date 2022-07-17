@@ -3,7 +3,6 @@ using System.Collections;
 using _Scripts;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
 [System.Serializable]
@@ -44,14 +43,13 @@ public class BattleSystem : MonoBehaviour
     public void StartTurn()
     {
         StartCoroutine(CalculateTurn());
+        SFXManager.Play("Button Push");
         _firstTime = false;
         tutorialText.SetActive(false);
     }
 
     public void SetupBattle(int maxHealth, StatsDice enemyStatsDice)
     {
-
-        
         DialogueText = "Time to Roll" ; //box dialogue 
         _inTurn = false;
         _moveOnPressed = false;
@@ -59,8 +57,11 @@ public class BattleSystem : MonoBehaviour
         // set player location
         player.startingPosition.gameObject.SetActive(false);
         player.holder.transform.SetParent(transform);
-        player.holder.transform.position = player.startingPosition.position;
-        player.holder.transform.localScale = player.startingPosition.localScale;
+        if (_firstTime)
+        {
+            player.holder.transform.position = player.startingPosition.position;
+            // player.holder.transform.localScale = player.startingPosition.localScale;
+        }
         
         // Generate Enemy & Set enemy location
         var enemyHolder = Instantiate(enemyPrefab, transform).GetComponent<DiceHolder>();
@@ -197,13 +198,13 @@ public class BattleSystem : MonoBehaviour
         defender.hud.UpdateHealth();
 
         // wait for input after damage indication
-        SFXManager.Play("Button Push");
+        // SFXManager.Play("Button Push");
         DialogueText = $"{attacker.name} attacked {defender.name} for {attackDamage} damage" +
                        $"{(blockedDamage > 0 ? $", but {defender.name} blocked {defenderBlock} damage." : "!" )}";
         yield return new WaitUntil(() => _moveOnPressed);
         _moveOnPressed = false;
 
-        SFXManager.Play("Button Push");
+        // SFXManager.Play("Button Push");
         DialogueText = damage > 0 ? $"{defender.name} took {damage} damage." : $"{defender.name} took no damage!";
         yield return new WaitUntil(() => _moveOnPressed);
         _moveOnPressed = false;

@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using _Scripts;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class BattleHUD : MonoBehaviour
