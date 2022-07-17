@@ -24,7 +24,7 @@ public class GameOverUI : MonoBehaviour
 
     private void Start()
     {
-        levelText.text = GameManager.level.ToString();
+        levelText.text = "You made it to level "+GameManager.level.ToString();
     }
 
     public void ShowScores()

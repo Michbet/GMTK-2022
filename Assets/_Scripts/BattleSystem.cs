@@ -144,7 +144,13 @@ public class BattleSystem : MonoBehaviour
         attacker.hud.StatsDiceVisual.attackDieVisual.SetNumber(attackDamage); // todo: have easier access
         defender.hud.StatsDiceVisual.blockDieVisual.SetNumber(defenderBlock);
 
-        int damage = attackDamage - defenderBlock >= 0 ? attackDamage - defenderBlock : 0;
+        int damage;
+        if(attackDamage == defenderBlock && (attackDamage!=0&&defenderBlock!=0))
+        {
+            damage = 1;
+        }
+        else
+        damage = attackDamage - defenderBlock >= 0 ? attackDamage - defenderBlock : 0;
         int blockedDamage = (attackDamage - damage);
         
         // Process damage and update UI
