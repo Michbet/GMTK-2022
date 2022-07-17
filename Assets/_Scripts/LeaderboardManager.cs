@@ -8,7 +8,7 @@ public class LeaderboardManager : MonoBehaviour
     public static LeaderboardManager Instance;
     public static string PlayerID;
     public static LootLockerLeaderboardMember[] Scores;
-    private static int _leaderboardID = 4760;
+    private static int _leaderboardID => 4760;
 
     // Start is called before the first frame update
     void Start()
