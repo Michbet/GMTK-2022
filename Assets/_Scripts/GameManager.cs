@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public void TransitionToShop()
     {
         // todo: Play shop music
+        SFXManager.Play("Button Push");
         if(MusicManager.currentSong.source != null) {
             MusicManager.currentSong.source.Stop();
         }
@@ -103,6 +104,7 @@ public class GameManager : MonoBehaviour
 
     private void OnShopExit()
     {
+        SFXManager.Play("Button Push");
         TransitionToBattle();
     }
 
