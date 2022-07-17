@@ -3,7 +3,8 @@ using System.Collections;
 using _Scripts;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 [System.Serializable]
 public class BattleEntity
@@ -136,6 +137,11 @@ public class BattleSystem : MonoBehaviour
     {
         playButton.gameObject.SetActive(!_inTurn);
         moveOnButton.enabled = _inTurn;
+
+        if (_inTurn && !HelperFunctions.IsMouseOverButtonUI() && Input.GetMouseButtonDown(0))
+        {
+            MoveOn();
+        }
     }
 
     IEnumerator ProcessTurn(BattleEntity attacker, BattleEntity defender, int attackDamage, int defenderBlock,
