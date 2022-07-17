@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        levelText.text = "Lvl " +  level;
+        levelText.text = "level " +  level;
     }
     private void Start()
     {
