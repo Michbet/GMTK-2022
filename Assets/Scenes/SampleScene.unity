@@ -535,6 +535,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e854802fcede9384d8cbf7107ea178ce, type: 2}
+    - target: {fileID: 492460024395371483, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 625724702761438931, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: m_LocalScale.x
       value: 159.66121
@@ -647,6 +651,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3404288647303985112, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4422084360362895746, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: DiceHolder
       value: 
@@ -657,6 +665,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4894344951193524332, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988168066492641657, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5418643976101760208, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}

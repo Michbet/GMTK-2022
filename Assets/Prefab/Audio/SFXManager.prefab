@@ -49,3 +49,18 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Button Push
+    clip: {fileID: 8300000, guid: ac5862bdee7ee46449c639748bc0492c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: aeac507667302fb4b8159d7982480e48, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: aeac507667302fb4b8159d7982480e48, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
