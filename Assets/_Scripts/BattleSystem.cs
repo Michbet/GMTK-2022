@@ -41,15 +41,11 @@ public class BattleSystem : MonoBehaviour
         set => dialogueTextUI.text = value;
     }
 
-
-    private void OnEnable()
-    {
-    }
-
     public void StartTurn()
     {
         StartCoroutine(CalculateTurn());
         _firstTime = false;
+        tutorialText.SetActive(false);
     }
 
     public void SetupBattle(int maxHealth, StatsDice enemyStatsDice)
@@ -79,11 +75,8 @@ public class BattleSystem : MonoBehaviour
         enemy.holder = enemyHolder;
         
         // manage tutorial text
-        if (tutorialText)
-        {
-            tutorialText.SetActive(_firstTime);
-            tutorialText.transform.SetAsLastSibling();
-        }
+        tutorialText.SetActive(_firstTime);
+        tutorialText.transform.SetAsLastSibling();
 
         // Reset Healths
         player.holder.maxHealth = maxHealth;
