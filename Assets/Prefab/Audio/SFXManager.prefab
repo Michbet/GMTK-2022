@@ -89,3 +89,8 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: No Upgrade
+    clip: {fileID: 8300000, guid: a17299e3081e2784685671519db985de, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}

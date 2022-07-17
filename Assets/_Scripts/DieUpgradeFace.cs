@@ -37,6 +37,8 @@ public class DieUpgradeFace : MonoBehaviour
             text.text = _die.faces[_index].ToString();
             upgrade_count++;
             SFXManager.Play("Increase Face");
+        } else {
+            SFXManager.Play("No Upgrade");
         }
     }
     
@@ -50,6 +52,8 @@ public class DieUpgradeFace : MonoBehaviour
             upgrade_count--;
             text.text = _die.faces[_index].ToString();
             SFXManager.Play("Decrease Face");
+        } else {
+            SFXManager.Play("No Upgrade");
         }
     }
 
