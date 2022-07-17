@@ -54,19 +54,18 @@ namespace _Scripts
                 dice[i] = new Die();
             }
 
-            var totalWeight = diceWeights.Sum();
             var valuesRemaining = totalValue;
             while (valuesRemaining > 0)
             {
-                dice[GetIndexFromWeights(diceWeights, totalWeight)].AddRandom();
+                dice[GetIndexFromWeights(diceWeights)].AddRandom();
                 valuesRemaining--;
             }
             
             return dice;
 
-            int GetIndexFromWeights(float[] weights, float totalWeight = -1f)
+            int GetIndexFromWeights(float[] weights)
             {
-                totalWeight = totalWeight < 0 ? diceWeights.Sum() : totalValue;
+                var totalWeight = diceWeights.Sum();
                 // var sum = totalWeight;
                 var value = Random.Range(0f, totalWeight);
                 int i = 0;
