@@ -33,7 +33,7 @@ namespace _Scripts
             username.text = member.player.name;
             level.text = member.score.ToString();
 
-            panelToHighlight.color = highlight ? highlightColor : _initColor;
+            // panelToHighlight.color = highlight ? highlightColor : _initColor;
         }
     }
 }

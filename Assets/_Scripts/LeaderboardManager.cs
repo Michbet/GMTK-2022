@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using LootLocker.Requests;
+using LootLocker.Admin;
 
 public class LeaderboardManager : MonoBehaviour
 {
@@ -54,12 +56,32 @@ public class LeaderboardManager : MonoBehaviour
 
     public IEnumerator SetNameAndScoreRoutine(string username, int score)
     {
+        yield return LoadScoresRoutine();
         yield return SetNameRoutine(username);
         yield return SubmitScoreRoutine(score);
     }
 
+    private LootLockerLeaderboardMember GetMemberFromName(string playerName)
+    {
+        if (Scores == null)
+            return null;
+        foreach (var score in Scores)
+        {
+            if (score.player.name == playerName)
+                return score;
+        }
+        return null;
+    }
+
     public IEnumerator SetNameRoutine(string playerName)
     {
+        var member = GetMemberFromName(playerName);
+        if (member != null)
+        {
+            Debug.Log("Found member: " + member.player.id + " with " + member.member_id);
+            PlayerID = member.member_id;   
+        }
+        
         bool done = false;
         LootLockerSDKManager.SetPlayerName(playerName, (response) =>
         {
