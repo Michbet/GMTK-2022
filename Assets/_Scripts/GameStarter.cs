@@ -7,6 +7,7 @@ public class GameStarter : MonoBehaviour
 {
     public void playGame()
     {
+        SFXManager.Play("Button Push");
         SceneManager.LoadScene("SampleScene");
     }
 }
