@@ -167,21 +167,26 @@ public class BattleSystem : MonoBehaviour
         if (blockedDamage > 0)
         {
             defender.holder.PlayOverlayAnim("block");
+            SFXManager.Play("Block");
         }
-        else if(damage > 0)
+        else if(damage > 0) {
             defender.holder.PlayOverlayAnim("slash");
+            SFXManager.Play("Damage");
+        }
+        else {
+            SFXManager.Play("Miss");
+        }
         
         // Process damage and update UI
-        SFXManager.Play("Damage");
         bool isDead = defender.holder.TakeDamage(damage);
         Debug.Log($"{attacker.name} dealt {damage} to {defender.name}");
         defender.hud.UpdateHealth();
 
         // wait for input after damage indication
+        SFXManager.Play("Button Push");
         DialogueText = $"{attacker.name} attacked {defender.name} for {attackDamage} damage" +
                        $"{(blockedDamage > 0 ? $", but {defender.name} blocked {defenderBlock} damage." : "!" )}";
         yield return new WaitUntil(() => _moveOnPressed);
-        SFXManager.Play("Button Press");
         _moveOnPressed = false;
 
         DialogueText = damage > 0 ? $"{defender.name} took {damage} damage." : $"{defender.name} took no damage!";
