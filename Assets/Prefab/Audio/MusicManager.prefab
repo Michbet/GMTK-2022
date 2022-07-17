@@ -47,19 +47,13 @@ MonoBehaviour:
   songs:
   - name: Battle Music
     clip: {fileID: 8300000, guid: 943b4d9b0b0adab49ad9f198f1550c08, type: 3}
-    volume: 0.744
+    volume: 0.581
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Shop Theme
     clip: {fileID: 8300000, guid: b8dac6ffee5cb6349a4a29e4fffe49a5, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Shop Theme
-    clip: {fileID: 8300000, guid: d73d9a7abfd1bff40933235f51ed379f, type: 3}
-    volume: 1
+    volume: 0.512
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -71,7 +65,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Main Menu
     clip: {fileID: 8300000, guid: 65052a09b2588bd48ac41086440d3075, type: 3}
-    volume: 1
+    volume: 0.504
     pitch: 1
     loop: 1
     source: {fileID: 0}

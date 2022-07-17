@@ -869,7 +869,7 @@ MonoBehaviour:
   goldFunction:
     m: 1
     b: 1
-  levelInit: 1
+  levelInit: 15
   levelText: {fileID: 1330371574}
   enemyPrefab: {fileID: 7996483366362049726, guid: 27794a9bff7445a4889b2b9ad0ddfb70, type: 3}
 --- !u!4 &1983657517
