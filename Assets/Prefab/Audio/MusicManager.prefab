@@ -63,3 +63,15 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 9fca2a87937b3974d8f5c7e963874297, type: 3}
+    volume: 0.77
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Main Menu
+    clip: {fileID: 8300000, guid: ab9e78f0d61b0894cbe4ee906fbd29bb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
