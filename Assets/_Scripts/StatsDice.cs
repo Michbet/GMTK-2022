@@ -27,24 +27,61 @@ namespace _Scripts
             return stats;
         }
 
-        public static Die[] GenerateDice(int totalValue, params float[] dicePercent)
+        // public static Die[] GenerateDice(int totalValue, params float[] dicePercent)
+        // {
+        //     Die[] dice = new Die[dicePercent.Length];
+        //     if (Mathf.RoundToInt(dicePercent.Sum()) != 1)
+        //     {
+        //         throw new Exception("Percents don't round to 1");
+        //     }
+        //     for (int i = 0; i < dicePercent.Length; i++)
+        //     {
+        //         dice[i] = Die.GenerateDie(Mathf.RoundToInt(totalValue * dicePercent[i]));
+        //         // sort the faces
+        //         var sortedFaces = dice[i].faces.ToList();
+        //         sortedFaces.Sort();
+        //         dice[i].faces = sortedFaces.ToArray();
+        //     }
+        //     
+        //     return dice;
+        // }
+        
+        public static Die[] GenerateDice(int totalValue, params float[] diceWeights)
         {
-            Die[] dice = new Die[dicePercent.Length];
-            if (Mathf.RoundToInt(dicePercent.Sum()) != 1)
+            Die[] dice = new Die[diceWeights.Length];
+            for(int i = 0; i < dice.Length; i++)
             {
-                throw new Exception("Percents don't round to 1");
+                dice[i] = new Die();
             }
-            for (int i = 0; i < dicePercent.Length; i++)
+
+            var totalWeight = diceWeights.Sum();
+            var valuesRemaining = totalValue;
+            while (valuesRemaining > 0)
             {
-                dice[i] = Die.GenerateDie(Mathf.RoundToInt(totalValue * dicePercent[i]));
-                // sort the faces
-                var sortedFaces = dice[i].faces.ToList();
-                sortedFaces.Sort();
-                dice[i].faces = sortedFaces.ToArray();
+                dice[GetIndexFromWeights(diceWeights, totalWeight)].AddRandom();
+                valuesRemaining--;
             }
             
             return dice;
+
+            int GetIndexFromWeights(float[] weights, float totalWeight = -1f)
+            {
+                totalWeight = totalWeight < 0 ? diceWeights.Sum() : totalValue;
+                // var sum = totalWeight;
+                var value = Random.Range(0f, totalWeight);
+                int i = 0;
+                foreach (var weight in weights)
+                {
+                    if (value < weight)
+                        return i;
+                    value -= weight;
+                    i++;
+                }
+
+                return -1;
+            }
         }
+        
 
         public TurnStats Roll()
         {
