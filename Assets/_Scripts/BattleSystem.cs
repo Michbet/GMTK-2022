@@ -55,11 +55,7 @@ public class BattleSystem : MonoBehaviour
     public void SetupBattle(int maxHealth, StatsDice enemyStatsDice)
     {
 
-        if (tutorialText)
-        {
-            tutorialText.SetActive(_firstTime);
-            tutorialText.transform.SetAsLastSibling();
-        }
+        
         DialogueText = "Time to Roll" ; //box dialogue 
         _inTurn = false;
         _moveOnPressed = false;
@@ -81,6 +77,13 @@ public class BattleSystem : MonoBehaviour
         enemyHolder.transform.position = enemy.startingPosition.position;
         enemyHolder.transform.localScale = enemy.startingPosition.localScale;
         enemy.holder = enemyHolder;
+        
+        // manage tutorial text
+        if (tutorialText)
+        {
+            tutorialText.SetActive(_firstTime);
+            tutorialText.transform.SetAsLastSibling();
+        }
 
         // Reset Healths
         player.holder.maxHealth = maxHealth;
