@@ -23,6 +23,8 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
 
     [SerializeField] private TMP_Text dialogueTextUI;
+    [SerializeField] private GameObject tutorialText;
+
 
     [SerializeField] private Button playButton;
     [SerializeField] private Button moveOnButton;
@@ -31,6 +33,7 @@ public class BattleSystem : MonoBehaviour
 
     private bool _moveOnPressed = false;
     private bool _inTurn = false;
+    private bool _firstTime = true;
 
     public string DialogueText
     {
@@ -38,13 +41,25 @@ public class BattleSystem : MonoBehaviour
         set => dialogueTextUI.text = value;
     }
 
+
+    private void OnEnable()
+    {
+    }
+
     public void StartTurn()
     {
         StartCoroutine(CalculateTurn());
+        _firstTime = false;
     }
 
     public void SetupBattle(int maxHealth, StatsDice enemyStatsDice)
     {
+
+        if (tutorialText)
+        {
+            tutorialText.SetActive(_firstTime);
+            tutorialText.transform.SetAsLastSibling();
+        }
         DialogueText = "Time to Roll" ; //box dialogue 
         _inTurn = false;
         _moveOnPressed = false;

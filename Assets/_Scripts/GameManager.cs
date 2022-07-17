@@ -17,11 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Binomial enemyStatsFunction;
     [SerializeField] private Linear healthFunction;
     [SerializeField] private Linear goldFunction;
-
-    // [SerializeField] private AnimationCurve enemyStatsCurve;
-    // // [SerializeField] private AnimationCurve healthCurve;
-    // [SerializeField] private AnimationCurve goldCurve;
-
+    
     [SerializeField] private int levelInit = 1;
     [SerializeField] private TMP_Text levelText;
 
