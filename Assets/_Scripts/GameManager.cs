@@ -34,7 +34,9 @@ public class GameManager : MonoBehaviour
     public void TransitionToShop()
     {
         // todo: Play shop music
-        MusicManager.currentSong.source.Stop();
+        if(MusicManager.currentSong.source != null) {
+            MusicManager.currentSong.source.Stop();
+        }
         MusicManager.Play("Shop Theme");
         
         _shopManager.gameObject.SetActive(true);
@@ -57,7 +59,9 @@ public class GameManager : MonoBehaviour
 
     public void TransitionToBattle()
     {
-        MusicManager.currentSong.source.Stop();
+        if(MusicManager.currentSong.source != null) {
+            MusicManager.currentSong.source.Stop();
+        }
         MusicManager.Play("Battle Music");
         
         _shopManager.gameObject.SetActive(false);
@@ -110,6 +114,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            MusicManager.currentSong.source.Stop();
+            MusicManager.Play("Death");
             SceneManager.LoadScene("GameOver");
         }
     }
