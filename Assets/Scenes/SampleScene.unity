@@ -531,30 +531,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 230472722050367134, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 59319682eab17804c9d540a9e0cdcba8, type: 3}
-    - target: {fileID: 230472722050367134, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 230472722050367134, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 230472722050367134, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 230472722050367134, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 230472722050367134, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 492460024395371480, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: m_Controller
       value: 
@@ -671,26 +647,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3404288647303985112, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Color.a
-      value: 0.9411765
-      objectReference: {fileID: 0}
-    - target: {fileID: 3404288647303985112, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Color.b
-      value: 0.7686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 3404288647303985112, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Color.g
-      value: 0.7686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 3404288647303985112, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Color.r
-      value: 0.7686275
-      objectReference: {fileID: 0}
-    - target: {fileID: 3404288647303985112, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4422084360362895746, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: DiceHolder
       value: 
@@ -702,14 +658,6 @@ PrefabInstance:
     - target: {fileID: 4894344951193524332, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4988168066492641657, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: bef5ebeed3b16db4a9ad311f20c8d4f3, type: 3}
-    - target: {fileID: 4988168066492641657, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5418643976101760208, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: enemy

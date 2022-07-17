@@ -163,6 +163,13 @@ public class BattleSystem : MonoBehaviour
         else
             damage = attackDamage - defenderBlock >= 0 ? attackDamage - defenderBlock : 0;
         int blockedDamage = (attackDamage - damage);
+
+        if (blockedDamage > 0)
+        {
+            defender.holder.PlayOverlayAnim("block");
+        }
+        else if(damage > 0)
+            defender.holder.PlayOverlayAnim("slash");
         
         // Process damage and update UI
         SFXManager.Play("Damage");
