@@ -51,3 +51,15 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Shop Theme
+    clip: {fileID: 8300000, guid: d73d9a7abfd1bff40933235f51ed379f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Shop Theme
+    clip: {fileID: 8300000, guid: d73d9a7abfd1bff40933235f51ed379f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
