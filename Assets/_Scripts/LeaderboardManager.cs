@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using LootLocker.Requests;
-using LootLocker.Admin;
 
 public class LeaderboardManager : MonoBehaviour
 {
