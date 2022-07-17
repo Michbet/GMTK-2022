@@ -9,6 +9,8 @@ public class Die
     // faces for the dice, can be changed in the editor
     public int[] faces = new int[] {1, 2, 3, 4, 5, 6};
 
+    public int Total => faces.Sum();
+
     public Die(int numFaces = 6)
     {
         this.faces = new int[numFaces];
