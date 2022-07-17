@@ -33,7 +33,7 @@ public class GameOverUI : MonoBehaviour
         leaderboardUI.SetActive(true);
     }
 
-    public void OnPlayAgain()
+    public static void OnPlayAgain()
     {
         SceneManager.LoadScene("SampleScene");
     }
