@@ -680,6 +680,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5418643976101760208, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
+      propertyPath: enemy.name
+      value: The Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418643976101760208, guid: 89d9387fca2c35649a3fedca0ebcb8e3, type: 3}
       propertyPath: player.holder
       value: 
       objectReference: {fileID: 1163328162}
@@ -856,14 +860,14 @@ MonoBehaviour:
   _battleSystem: {fileID: 1014344822}
   player: {fileID: 1163328162}
   enemyStatsFunction:
-    a: 0.5
+    a: 0.75
     b: 1
     c: 3
   healthFunction:
-    m: 0.25
+    m: 0.85
     b: 3
   goldFunction:
-    m: 0.4
+    m: 1
     b: 1
   levelInit: 1
   levelText: {fileID: 1330371574}
