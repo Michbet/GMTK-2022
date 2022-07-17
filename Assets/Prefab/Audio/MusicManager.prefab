@@ -52,7 +52,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Shop Theme
-    clip: {fileID: 8300000, guid: 8f0f17a2cdd2ada48a120e7f173ae248, type: 3}
+    clip: {fileID: 8300000, guid: b8dac6ffee5cb6349a4a29e4fffe49a5, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -64,13 +64,13 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Death
-    clip: {fileID: 8300000, guid: c6c88861c87d2fc458d1f5c43c37e7f8, type: 3}
+    clip: {fileID: 8300000, guid: 6b94252c876e31241bf222a107a79d5e, type: 3}
     volume: 0.376
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Main Menu
-    clip: {fileID: 8300000, guid: ab9e78f0d61b0894cbe4ee906fbd29bb, type: 3}
+    clip: {fileID: 8300000, guid: 65052a09b2588bd48ac41086440d3075, type: 3}
     volume: 1
     pitch: 1
     loop: 1
