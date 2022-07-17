@@ -1047,10 +1047,10 @@ MonoBehaviour:
     b: 1
     c: 3
   healthFunction:
-    m: 1
+    m: 0.25
     b: 3
   goldFunction:
-    m: 0
+    m: 0.4
     b: 1
   levelInit: 1
   levelText: {fileID: 1330371574}
