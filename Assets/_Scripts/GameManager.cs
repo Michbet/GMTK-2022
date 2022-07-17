@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour
         else
         {
             MusicManager.currentSong.source.Stop();
+            SFXManager.Play("Death");
             MusicManager.Play("Death");
             SceneManager.LoadScene("GameOver");
         }
