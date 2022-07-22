@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Binomial enemyStatsFunction;
     [SerializeField] private Linear healthFunction;
     [SerializeField] private Linear goldFunction;
+
+    [SerializeField] private bool useCurves;
+
+    [SerializeField] private AnimationCurve enemyStatsCurve;
+    [SerializeField] private AnimationCurve healthCurve;
+    [SerializeField] private AnimationCurve goldCurve;
     
     [SerializeField] private int levelInit = 1;
     [SerializeField] private TMP_Text levelText;
@@ -47,7 +53,8 @@ public class GameManager : MonoBehaviour
         // Debug.Log("current player value: " + player.dice.TotalValue);
         // Debug.Log("gold to add: " + (targetValue - player.dice.TotalValue));
         
-        ShopManager.goldCount += Mathf.RoundToInt(goldFunction.Calculate(level));
+        ShopManager.goldCount += Mathf.RoundToInt(
+            useCurves ? goldCurve.Evaluate(level) : goldFunction.Calculate(level));
         
         level++;
         _enemyStatsDice = GenerateEnemyDice(level);
@@ -64,7 +71,7 @@ public class GameManager : MonoBehaviour
         _shopManager.gameObject.SetActive(false);
         _battleSystem.gameObject.SetActive(true);
         
-        _battleSystem.SetupBattle(Mathf.RoundToInt(healthFunction.Calculate(level)), _enemyStatsDice);
+        _battleSystem.SetupBattle(Mathf.RoundToInt(useCurves ? healthCurve.Evaluate(level) : healthFunction.Calculate(level)), _enemyStatsDice);
     }
     private void Update()
     {
@@ -81,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     private StatsDice GenerateEnemyDice(int lvl)
     {
-        var total = Mathf.RoundToInt(enemyStatsFunction.Calculate(lvl));
+        var total = Mathf.RoundToInt(useCurves ? enemyStatsCurve.Evaluate(lvl) : enemyStatsFunction.Calculate(lvl));
         Debug.Log("Enemies Total " + total);
         return StatsDice.GenerateStatsDice(total, enemyPrefab.speedPercent, enemyPrefab.blockPercent,
             enemyPrefab.speedPercent);
