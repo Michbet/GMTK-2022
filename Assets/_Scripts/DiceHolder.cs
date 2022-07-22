@@ -7,8 +7,8 @@ namespace _Scripts
     {
         public StatsDice dice;
         public Animator anim;
-        public int currentHealth;
-        public int maxHealth = 15;
+        public float currentHealth;
+        public float maxHealth = 15;
 
         public OverlayAnimation overlayAnimation;
 
@@ -25,7 +25,7 @@ namespace _Scripts
         /// </summary>
         /// <param name="damage"></param>
         /// <returns>true if the diceHolder died</returns>
-        public bool TakeDamage(int damage)
+        public bool TakeDamage(float damage)
         {
             currentHealth -= damage;
             return currentHealth <= 0;
