@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,6 +21,12 @@ namespace _Scripts
             EventSystem.current.RaycastAll(_eventCurrentPosition, _results);
             var count = _results.Count(result => result.gameObject.GetComponent<Button>() != null);
             return count > 0;
+        }
+
+        public static IEnumerator DoAfter(float duration, Action action)
+        {
+            yield return new WaitForSeconds(duration);
+            action();
         }
     }
 }

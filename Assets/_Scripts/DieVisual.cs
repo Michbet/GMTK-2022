@@ -9,6 +9,8 @@ public class DieVisual : MonoBehaviour
 {
     public TMP_Text text;
     [SerializeField] private Die _die;
+    [SerializeField] private int numSpins = 1;
+    [SerializeField] private float spinDuration = .5f;
 
 
     private int[] _dieFacesSet;
@@ -70,17 +72,17 @@ public class DieVisual : MonoBehaviour
 
     public void SpinOnce()
     {
-        StartCoroutine(SpinOnceRoutine(.5f));
+        StartCoroutine(SpinRoutine(numSpins, spinDuration));
     }
     
-    private IEnumerator SpinOnceRoutine(float duration)
+    private IEnumerator SpinRoutine(int numSpins, float duration)
     {
         var startRotation = transform.rotation;
         
         for (float t = 0; t < duration; t += Time.deltaTime)
         {
             var eulerAngles = transform.rotation.eulerAngles;
-            eulerAngles.z = Mathf.Lerp(0, 360, t / duration);
+            eulerAngles.z = Mathf.Lerp(0, 360 * numSpins, t / duration);
             transform.rotation = Quaternion.Euler(eulerAngles);
             yield return null;
             

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Editor
 {
-    [CustomEditor(typeof(_Scripts.Oscillator))]
+    [CustomEditor(typeof(_Scripts.Oscillator)), CanEditMultipleObjects]
     public class OscillatorEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
@@ -31,6 +31,7 @@ namespace Editor
                 GUI.enabled = true;
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("oscillationCurve"));
             }
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("phaseDifference"));
             
             serializedObject.ApplyModifiedProperties();
         }
