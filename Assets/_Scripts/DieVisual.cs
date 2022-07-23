@@ -70,30 +70,22 @@ public class DieVisual : MonoBehaviour
 
     public void SpinOnce()
     {
-        StartCoroutine(SpinOnceRoutine(10));
+        StartCoroutine(SpinOnceRoutine(.5f));
     }
-    //_die.faces
-    private IEnumerator SpinOnceRoutine(float speed)
+    
+    private IEnumerator SpinOnceRoutine(float duration)
     {
         var startRotation = transform.rotation;
         
-        for (float i = 0; i < 360; i += speed)
+        for (float t = 0; t < duration; t += Time.deltaTime)
         {
             var eulerAngles = transform.rotation.eulerAngles;
-            eulerAngles.z = i;
+            eulerAngles.z = Mathf.Lerp(0, 360, t / duration);
             transform.rotation = Quaternion.Euler(eulerAngles);
             yield return null;
             
         }
-        //
-        // var duration = 5;
-        // for (float i = duration; i >= 0; i -= Time.deltaTime)
-        // {
-        //     Debug.Log(i);
-        //     yield return null;
-        // }
         
-
         transform.rotation = startRotation;
 
     }
