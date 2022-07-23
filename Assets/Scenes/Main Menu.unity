@@ -653,25 +653,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f1fdb304b58774396cadacf30c15ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &450203899
-Animator:
-  serializedVersion: 3
+--- !u!114 &450203899
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450203893}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1649692dfe85b1c43910d375cf4f59bf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44936f215f47f6b3e8dd54b2d0c409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oscillate: 1
+  useCurve: 0
+  amplitude: 3
+  frequency: 2
+  oscillationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.00005949149
+      value: -0.4795889
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5006716
+      value: 0.5204111
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 4
 --- !u!1 &815243608
 GameObject:
   m_ObjectHideFlags: 0
